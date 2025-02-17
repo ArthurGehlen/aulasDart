@@ -7,7 +7,10 @@ void main() {
   // exercicios.exer3(1000);
   // exercicios.exer4(10);
   // exercicios.exer5(30);
-  exercicios.exer6(5);
+  // exercicios.exer6(5);
+  // exercicios.exer7(2028);
+  // exercicios.exer8(4);
+  exercicios.exer9(2, 3, 1);
 }
 
 class Exercicios {
@@ -85,6 +88,26 @@ class Exercicios {
     for (int i = 1; i <= n; i++) {
       fatorial *= i;
     }
-    print(fatorial); 
+    print(fatorial);
+  }
+
+  void exer7(int age) {
+    // Faça um Programa que peça um número correspondente a um determinado ano e em seguida informe se este ano e ou não bissexto.
+    age % 4 == 0 && age % 100 != 0
+        ? print('$age é um ano bissexto')
+        : print('$age não é um ano bissexto');
+  }
+
+  void exer8(int n) {
+    // Faça um Programa que peça um número inteiro e determine se ele e par ou ímpar.
+    n % 2 == 0 ? print('$n é par') : print('$n não é par');
+  }
+
+  void exer9(int n1, int n2, int n3) {
+    // Faça um programa que leia três números e mostre-os em ordem decrescente.
+    List<int> nums = [n1, n2, n3];
+
+    nums.sort((b, a) => a.compareTo(b));
+    print(nums);
   }
 }
