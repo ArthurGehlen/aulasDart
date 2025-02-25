@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   Exercicios exercicios = Exercicios();
@@ -10,26 +11,32 @@ void main() {
   // exercicios.exer6(5);
   // exercicios.exer7(2028);
   // exercicios.exer8(4);
-  exercicios.exer9(2, 3, 1);
+  // exercicios.exer9(2, 3, 1);
+  // exercicios.exer10(1);
+  exercicios.exer11(2, 5, 10);
 }
 
 class Exercicios {
   void exer1(int n1, int n2) {
-    print(n1 == n2
-        ? 'Números iguais'
-        : n1 > n2
-            ? '$n1 maior'
-            : '$n2 maior');
+    print(
+      n1 == n2
+          ? 'Números iguais'
+          : n1 > n2
+          ? '$n1 maior'
+          : '$n2 maior',
+    );
   }
 
   void exer2(int n1, int n2, int n3) {
-    print(n1 == n2 && n2 == n3
-        ? 'Números iguais'
-        : n1 > n2 && n1 > n3
-            ? '$n1 maior'
-            : n2 > n1 && n2 > n3
-                ? '$n2 maior'
-                : '$n3 maior');
+    print(
+      n1 == n2 && n2 == n3
+          ? 'Números iguais'
+          : n1 > n2 && n1 > n3
+          ? '$n1 maior'
+          : n2 > n1 && n2 > n3
+          ? '$n2 maior'
+          : '$n3 maior',
+    );
   }
 
   void exer3(double salario) {
@@ -40,10 +47,10 @@ class Exercicios {
     salario <= 280
         ? porcentagem_de_aumento = 0.20
         : salario > 280 && salario <= 700
-            ? porcentagem_de_aumento = 0.15
-            : salario > 700 && salario <= 1500
-                ? porcentagem_de_aumento = 0.10
-                : porcentagem_de_aumento = 0.05;
+        ? porcentagem_de_aumento = 0.15
+        : salario > 700 && salario <= 1500
+        ? porcentagem_de_aumento = 0.10
+        : porcentagem_de_aumento = 0.05;
 
     quantidade_de_aumento = salario * porcentagem_de_aumento;
     novo_salario = salario + quantidade_de_aumento;
@@ -109,5 +116,17 @@ class Exercicios {
 
     nums.sort((b, a) => a.compareTo(b));
     print(nums);
+  }
+
+  //Faça uma função que recebe por parâmetro o raio de uma esfera e calcula o seu volume (v = 4/3.P .R3).
+  void exer10(double r) {
+    double v = 4 / 3 * 3.14 * pow(r, 3);
+    v.toString();
+    print(v.toStringAsFixed(2));
+  }
+
+  // Faça uma função que recebe a idade de uma pessoa em anos, meses e dias e retorna essa idade expressa em dias.
+  void exer11(int years, int months, int days) {
+    print((years * 365) + (months * 30) + days);
   }
 }
