@@ -13,7 +13,9 @@ void main() {
   // exercicios.exer8(4);
   // exercicios.exer9(2, 3, 1);
   // exercicios.exer10(1);
-  exercicios.exer11(2, 5, 10);
+  // exercicios.exer11(2, 5, 10);
+  // exercicios.exer12(1.70, 'homem');
+  exercicios.exer13(4, 1.75, 3);
 }
 
 class Exercicios {
@@ -128,5 +130,33 @@ class Exercicios {
   // Faça uma função que recebe a idade de uma pessoa em anos, meses e dias e retorna essa idade expressa em dias.
   void exer11(int years, int months, int days) {
     print((years * 365) + (months * 30) + days);
+  }
+
+  // 12. Faça uma função que recebe, por parâmetro, a altura (alt) e o sexo de uma pessoa e retorna o seu peso ideal.
+  // Para homens, calcular o peso ideal usando a fórmula peso ideal = 72.7 x alt – 58 e,
+  // para mulheres, peso ideal = 62.1 x alt – 44.7.
+  void exer12(double height, String gender) {
+    double weight = 0;
+    print(
+      gender == 'mulher'
+          ? weight = (62.1 * height) - 44.7
+          : gender == 'homem'
+          ? weight = (72.7 * height) - 58
+          : '',
+    );
+  }
+
+  // Escreva um procedimento que recebes 3 valores reais X, Y e Z e que verifique se esses valores podem ser os comprimentos dos lados de um triângulo e,
+  // neste caso, retornar qual o tipo de triângulo formado. Para que X, Y e Z formem um triângulo é 
+  // necessário que a seguinte propriedade seja satisfeita: o comprimento de cada lado de um triângulo é 
+  // menor do que a soma do comprimento dos outros dois lados. O procedimento deve identificar o tipo de triângulo 
+  //formado observando as seguintes definições:
+  // Triângulo Equilátero: os comprimentos dos 3 lados são iguais.
+  // Triângulo Isósceles: os comprimentos de 2 lados são iguais.
+  // Triângulo Escaleno: os comprimentos dos 3 lados são diferentes.
+  void exer13(double x, double y, double z) {
+    print(x == y && y == z ? 'Triângulo Equilátero' : 
+          x == y || y == z ? 'Triângulo Isósceles' : 
+          'Triângulo Escaleno');
   }
 }
