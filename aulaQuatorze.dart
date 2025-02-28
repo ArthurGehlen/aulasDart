@@ -15,7 +15,9 @@ void main() {
   // exercicios.exer10(1);
   // exercicios.exer11(2, 5, 10);
   // exercicios.exer12(1.70, 'homem');
-  exercicios.exer13(4, 1.75, 3);
+  // exercicios.exer13(4, 1.75, 3);
+  exercicios.exer14(5);
+  // print(exercicios.exer15(2));
 }
 
 class Exercicios {
@@ -147,16 +149,46 @@ class Exercicios {
   }
 
   // Escreva um procedimento que recebes 3 valores reais X, Y e Z e que verifique se esses valores podem ser os comprimentos dos lados de um triângulo e,
-  // neste caso, retornar qual o tipo de triângulo formado. Para que X, Y e Z formem um triângulo é 
-  // necessário que a seguinte propriedade seja satisfeita: o comprimento de cada lado de um triângulo é 
-  // menor do que a soma do comprimento dos outros dois lados. O procedimento deve identificar o tipo de triângulo 
+  // neste caso, retornar qual o tipo de triângulo formado. Para que X, Y e Z formem um triângulo é
+  // necessário que a seguinte propriedade seja satisfeita: o comprimento de cada lado de um triângulo é
+  // menor do que a soma do comprimento dos outros dois lados. O procedimento deve identificar o tipo de triângulo
   //formado observando as seguintes definições:
   // Triângulo Equilátero: os comprimentos dos 3 lados são iguais.
   // Triângulo Isósceles: os comprimentos de 2 lados são iguais.
   // Triângulo Escaleno: os comprimentos dos 3 lados são diferentes.
   void exer13(double x, double y, double z) {
-    print(x == y && y == z ? 'Triângulo Equilátero' : 
-          x == y || y == z ? 'Triângulo Isósceles' : 
-          'Triângulo Escaleno');
+    print(
+      x == y && y == z
+          ? 'Triângulo Equilátero'
+          : x == y || y == z
+          ? 'Triângulo Isósceles'
+          : 'Triângulo Escaleno',
+    );
+  }
+
+  // Faça um programa que recebe a altura de um triangulo em um número inteiro e imprima-o utilizando asteriscos.
+  void exer14(int height) {
+    for (int i = 0; i <= height; i++) {
+      print(' ');
+      for (int j = 0; j <= height - i - 1; j++) {
+        stdout.write('*');
+      }
+    }
+  }
+
+  // Faça uma função que recebe por parâmetro um valor inteiro e positivo e retorna o valor lógico Verdadeiro
+  // caso o valor seja primo e Falso em caso contrário.
+  bool exer15(double num) {
+    if(num < 2) {
+      return false;
+    }
+
+    for(int i = 2; i <= sqrt(num); i++) {
+      if (num % i == 0) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
