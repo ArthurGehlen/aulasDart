@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:io';
 import 'dart:math';
 
@@ -16,8 +17,10 @@ void main() {
   // exercicios.exer11(2, 5, 10);
   // exercicios.exer12(1.70, 'homem');
   // exercicios.exer13(4, 1.75, 3);
-  exercicios.exer14(5);
+  // exercicios.exer14(5);
   // print(exercicios.exer15(2));
+  // exercicios.exer16('D');
+  exercicios.exer17(0, 0, 0);
 }
 
 class Exercicios {
@@ -179,16 +182,54 @@ class Exercicios {
   // Faça uma função que recebe por parâmetro um valor inteiro e positivo e retorna o valor lógico Verdadeiro
   // caso o valor seja primo e Falso em caso contrário.
   bool exer15(double num) {
-    if(num < 2) {
+    if (num < 2) {
       return false;
     }
 
-    for(int i = 2; i <= sqrt(num); i++) {
+    for (int i = 2; i <= sqrt(num); i++) {
       if (num % i == 0) {
         return false;
       }
     }
 
     return true;
+  }
+
+  // O algoritmo deve mostrar na tela as notas, a média, o conceito correspondente e a mensagem “APROVADO”
+  // se o conceito for A, B ou C “REPROVADO” se o conceito for D ou E.
+  void exer16(String conceito) {
+    print(
+      conceito == 'A' || conceito == 'B' || conceito == 'C'
+          ? 'APROVADO'
+          : 'REPROVADO',
+    );
+  }
+  
+  // Faça um programa que calcule as raízes de uma equação do segundo grau, na forma ax2 + bx + c.
+  // O programa deverá pedir os valores de a, b e c e fazer as consistências, informando ao usuário nas seguintes situações:  
+  // a. Se o usuário informar o valor de A igual a zero. a equação não e do segundo grau e o programa não deve fazer pedir os demais valores, sendo encerrado;
+  // b. Se o delta calculado for negativo, a equação não possui raízes reais. Informe ao usuário e encerre o programa;
+  // c. Se o delta calculado for igual a zero a equação possui apenas uma raiz real; informe ao usuário;
+  // d. Se o delta for positivo, a equação possui duas raízes reais; informe-as ao usuário;   
+  
+  // Fórmula do DELTA: delta = b² - 4ac
+  void exer17(double a, double b, double c) {
+    double delta = pow(b, 2) - 4 * a * c;
+
+    if(delta < 0) {
+      print('A equação não possui raízes reais.');
+    }
+    else if(delta == 0) {
+      print('A equação possui apenas uma raiz real.');
+      double raiz = (-b + sqrt(delta)) / (2 * a);
+      print(raiz);
+    }
+    else {
+      print('A equação possui duas raízes reais.');
+      double raiz1 = (-b + sqrt(delta)) / (2 * a);
+      double raiz2 = (-b - sqrt(delta)) / (2 * a);
+      print(raiz1);
+      print(raiz2);
+    }
   }
 }
