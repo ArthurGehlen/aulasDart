@@ -48,5 +48,6 @@ void main() {
   double vlSal = inputDouble("$nmPessoa, qual eh o seu salario? ");
   double vlImp = 0.2 * vlSal;
   print(
-      "$nmPessoa, você ganha $vlSal reais e pagara $vlImp reais de impostos!");
+    "$nmPessoa, você ganha $vlSal reais e pagara $vlImp reais de impostos!",
+  );
 }

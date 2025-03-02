@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:io';
 import 'dart:math';
 
@@ -141,6 +140,7 @@ class Exercicios {
   // Para homens, calcular o peso ideal usando a fórmula peso ideal = 72.7 x alt – 58 e,
   // para mulheres, peso ideal = 62.1 x alt – 44.7.
   void exer12(double height, String gender) {
+    // ignore: unused_local_variable
     double weight = 0;
     print(
       gender == 'mulher'
