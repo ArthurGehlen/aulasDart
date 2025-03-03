@@ -8,9 +8,7 @@ import 'lib/biblioteca.dart';
 
 void main() {
   Calculadora calculadora = Calculadora();
-  calculadora.get_data();
-  calculadora.calculate();
-  print(calculadora.show());
+  calculadora.start();
 }
 
 class Calculadora {
@@ -27,13 +25,6 @@ class Calculadora {
     } else {
       return is_valid;
     }
-  }
-
-  bool value_is_valid(double value) {
-    if (value >= -100 && value <= 100) {
-      return true;
-    }
-    return false;
   }
 
   double calculate() {
@@ -53,31 +44,25 @@ class Calculadora {
     }
   }
 
-  void get_data() {
-    while (true) {
-      double user_value1 = inputDouble('Digite o primeiro número entre -100 e 100: ');
-      if (value_is_valid(user_value1)) {
-        first_value = user_value1;
-        break;
-      }
-    }
-    while (true) {
-      double user_value2 = inputDouble('Digite o segundo número entre -100 e 100: ');
-      if (value_is_valid(user_value2)) {
-        second_value = user_value2;
-        break;
-      }
-    }
-    while (true) {
-      String user_operator = inputStr('Digite a operação (+ - x /): ');
-      if (operator_is_valid(user_operator)) {
-        operator = user_operator;
-        break;
-      }
-    }
-  }
-
   String show() {
     return '$first_value $operator $second_value = $result';
+  }
+
+  void start() {
+    while (true) {
+      String user_input = inputStr(
+        "Digite a conta (utilize apenas 2 números): ",
+      );
+      List count = user_input.split(' ');
+
+      if (operator_is_valid(count[1])) {
+        first_value = double.parse(count[0]);
+        operator = count[1];
+        second_value = double.parse(count[2]);
+        calculate();
+        print(show());
+        break;
+      }
+    }
   }
 }
